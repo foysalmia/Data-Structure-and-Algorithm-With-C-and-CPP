@@ -26,21 +26,17 @@ int main(){
     print_array(a,n);
 
     for(int i=1;i<n;i++){
-        int flag = 0;
-        for(int j=0;j<n-i;j++){
-            if(a[j]<a[j+1]){
-                int tmp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = tmp;
-                flag = 1;
-            }
+        int key = a[i];
+        int j = i-1;
+        while(a[j]<key && j>= 0){
+            a[j+1] = a[j];
+            j--;
         }
-        if(!flag){
-            break;
-        }
+        a[j+1] = key;
     }
 
-    cout<<"After Bubble Sorting by Descending order : ";
+    cout<<"After Insertion Sorting by ascending order : ";
     print_array(a,n);
     return 0;
 }
+
