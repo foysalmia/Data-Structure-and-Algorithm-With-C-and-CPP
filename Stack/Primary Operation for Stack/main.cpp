@@ -8,6 +8,11 @@ int main(){
     st.push(3);
     st.push(4);
     st.push(5);
+    st.push(6);
+
+    while(!st.isEmpty()){
+        cout<<st.pop()<<" "<<"size : "<<st.length()<<endl;
+    }
 
     cout<<st.pop()<<" "<<"size : "<<st.length()<<endl;
     cout<<st.Top()<<" "<<"size : "<<st.length()<<endl;
