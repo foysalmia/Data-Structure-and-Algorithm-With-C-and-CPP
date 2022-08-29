@@ -28,12 +28,40 @@ TreeNode * createTreeNode(){
     root->right = createTreeNode();
 
     return root;
+};
+
+void printSpace(int level){
+    for(int i=0;i<level;i++){
+        cout<<"   ";
+    }
+}
+
+void printTreeNode(TreeNode * root,int level){
+    if(root == NULL)return;
+    if(root->left == NULL && root->right == NULL){
+        cout<<root->value<<endl;
+        return;
+    }else{
+        cout<<endl;
+        printSpace(level);
+        cout<<"Root : "<<root->value<<endl;
+    }
+    if(root->left!=NULL){
+        printSpace(level);
+        cout<<"Left : ";
+        printTreeNode(root->left,level+1);
+    };
+    if(root->right!=NULL){
+        printSpace(level);
+        cout<<"Right : ";
+        printTreeNode(root->right,level+1);
+    }
 }
 
 int main(){
     TreeNode * head = NULL;
     head = createTreeNode();
 
-    cout<<"Successfully created Binary Tree Node "<<endl;
+    printTreeNode(head,0);
     return 0;
 }
